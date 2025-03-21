@@ -1,25 +1,23 @@
 import React from "react";
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/Footer";
-import { links } from "../../utils/paths";
+import { corporateFriendlyCountries, links } from "../../utils/paths";
 import { FaPhone } from "react-icons/fa6";
 
 const classStyles = {
-  pageStyle:
-    "flex flex-col justify-between lg:min-h-screen",
+  pageStyle: "flex flex-col justify-between lg:min-h-screen",
   container:
-    "mx-auto px-16 lg:px-20 py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 mt-3 bg-white rounded-2xl",
+    "px-[16px] lg:px-16 lg:px-20 py-[16px] lg:py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 mt-3 bg-white rounded-2xl mx-[16px] lg:mx-[8rem]",
   contactInfo: "flex flex-col gap-4",
   heading: "text-3xl font-bold ",
   description: "text-lg font-medium text-gray-700",
   infoItem: "flex items-center gap-3 text-gray-600",
   formContainer: "gap-3",
   input:
-    "w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 ",
+    "w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 my-1",
   button:
-    "w-full p-3 bg-blue-600 text-white font-semibold rounded-md transition",
+    "w-full p-3 bg-blue-600 text-white font-semibold rounded-md transition my-1",
 };
-
 
 const ContactUsPage = () => {
   return (
@@ -59,9 +57,9 @@ const ContactUsPage = () => {
             className={classStyles.input}
           />
           <select className={classStyles.input}>
-            <option>Country</option>
-            <option>Egypt</option>
-            <option>UAE</option>
+            {corporateFriendlyCountries.map((c) => (
+              <option>{c}</option>
+            ))}
           </select>
           <input type="tel" placeholder="Phone" className={classStyles.input} />
           <button className={classStyles.button}>Submit</button>

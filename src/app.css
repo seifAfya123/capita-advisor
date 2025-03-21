@@ -1,0 +1,13 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+@import "tailwindcss";
+
+/* h1{
+    background-color: red;
+} */
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: #F2F5FF;
+}

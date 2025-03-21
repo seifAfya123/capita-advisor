@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#New_Pattern);
+        mix-blend-mode: color-burn;
+      }
+
+      .cls-1, .cls-2 {
+        opacity: .2;
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-4 {
+        stroke: #7f9bff;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-2, .cls-5 {
+        fill: #041d56;
+        mix-blend-mode: multiply;
+      }
+
+      .cls-6 {
+        isolation: isolate;
+      }
+    </style>
+    <pattern id="New_Pattern" data-name="New Pattern" x="0" y="0" width="38.09" height="40" patternTransform="translate(26787.55 27046.2) scale(4.22)" patternUnits="userSpaceOnUse" viewBox="0 0 38.09 40">
+      <g>
+        <rect class="cls-3" x="0" width="38.09" height="40"/>
+        <path class="cls-4" d="M71.43,74.37c-5.88,4.84-14.31,5.99-21.48,2.24-9.56-5-13.27-16.8-8.27-26.37,3.57-6.83,10.61-10.67,17.83-10.49"/>
+        <path class="cls-4" d="M33.34,74.37c-5.88,4.84-14.31,5.99-21.48,2.24C2.29,71.61-1.41,59.81,3.58,50.24c3.57-6.83,10.61-10.67,17.83-10.49"/>
+        <path class="cls-4" d="M71.43,34.37c-5.88,4.84-14.31,5.99-21.48,2.24-9.56-5-13.27-16.8-8.27-26.37C45.24,3.41,52.28-.43,59.5-.25"/>
+        <g>
+          <path class="cls-4" d="M22.63,23.56c-1.79,3.1-5.76,4.17-8.86,2.37-3.1-1.79-4.17-5.76-2.37-8.86,1.79-3.1,5.76-4.17,8.86-2.37,3.1,1.79,4.17,5.76,2.37,8.86Z"/>
+          <g>
+            <line class="cls-4" x1="11.85" y1="2.47" x2="39.62" y2="23.52"/>
+            <path class="cls-4" d="M33.34,34.37c-5.88,4.84-14.31,5.99-21.48,2.24C2.29,31.61-1.41,19.81,3.58,10.24,7.15,3.41,14.19-.43,21.41-.25"/>
+          </g>
+        </g>
+        <line class="cls-4" x1="-26.25" y1="2.47" x2="1.53" y2="23.52"/>
+        <path class="cls-4" d="M71.43-5.63c-5.88,4.84-14.31,5.99-21.48,2.24-9.56-5-13.27-16.8-8.27-26.37,3.57-6.83,10.61-10.67,17.83-10.49"/>
+        <path class="cls-4" d="M33.34-5.63C27.46-.79,19.03.36,11.85-3.39,2.29-8.39-1.41-20.19,3.58-29.76c3.57-6.83,10.61-10.67,17.83-10.49"/>
+      </g>
+    </pattern>
+  </defs>
+  <g class="cls-6">
+    <g id="Layer_1" data-name="Layer 1">
+      <rect class="cls-5" x="-27.06" y="-14.82" width="1993.53" height="1150.23"/>
+      <rect class="cls-2" x="-27.06" y="-32.18" width="1993.53" height="1150.23"/>
+      <rect class="cls-1" x="-27.06" y="-32.18" width="1964.94" height="1150.23"/>
+    </g>
+  </g>
+</svg>

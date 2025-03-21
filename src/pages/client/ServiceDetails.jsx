@@ -1,0 +1,53 @@
+import React from "react";
+import NavBar from "../../components/navbar/NavBar";
+import Footer from "../../components/Footer";
+import { links } from "../../utils/paths";
+
+const classStyles = {
+  ServiceContainer:
+    "rounded-2xl bg-white mx-[16px] md:mx-[8rem] mt-[2rem] overflow-hidden",
+  serviceImage: "w-full max-h-[20rem] object-cover rounded-2xl",
+  serviceTitle:
+    "text-xl font-semibold w-full item-center text-center mt-[1rem] px-[1rem]",
+  ServiceDescription: "text-md px-[1rem] lg:px-[3rem] py-[1rem]",
+};
+
+const htmlText = `
+    <p>
+      Service is at the heart of every successful business.
+      Whether it's a <strong>restaurant</strong>, a <em>software company</em>, 
+      or a healthcare provider, the quality of service determines customer 
+      satisfaction and loyalty.
+    </p>
+    <ul>
+      <li><strong>Builds Trust:</strong> Reliable service encourages customers to return.</li>
+      <li><strong>Increases Loyalty:</strong> A great experience keeps customers engaged.</li>
+      <li><strong>Differentiates a Business:</strong> Exceptional service helps a company stand out.</li>
+    </ul>
+    w hna ay klam <br>
+    34an ana gamed moot
+  `;
+const ServiceDetails = () => {
+  return (
+    <div className="lg:min-h-screen flex flex-col justify-between">
+      <NavBar tablink={links.ourService} />
+      <div className={classStyles.ServiceContainer}>
+        <img
+          className={classStyles.serviceImage}
+          src="callcenter.png"
+          alt="Service image"
+        />
+        <p className={classStyles.serviceTitle}>
+          The Essence of Service: Why It Matters in Every Industry
+        </p>
+        <div
+          className={classStyles.ServiceDescription}
+          dangerouslySetInnerHTML={{ __html: htmlText }}
+        ></div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default ServiceDetails;

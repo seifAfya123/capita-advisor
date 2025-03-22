@@ -8,6 +8,7 @@ import RegisterFormPage from "./pages/client/RegisterFormPage";
 import ContactUsPage from "./pages/client/ContactUsPage";
 import LoginPage from "./pages/admin/LoginPage";
 import { links } from "./utils/paths";
+import BlogDetailsPage from "./pages/client/BlogDetailsPage";
 
 
 export default function App() {
@@ -22,7 +23,7 @@ export default function App() {
           <Route path={links.registerCompany} element={<RegisterCompanyPage />} />
           <Route path={links.registerForm} element={<RegisterFormPage />} />
           <Route path={links.contactUs} element={<ContactUsPage />} />
-          <Route path={links.blog} element={<ContactUsPage />} />
+          <Route path={links.blog} element={<BlogDetailsPage />} />
           {/* *** Dashbaord URLs *** */}
           <Route path="/dashbaord/login" element={<LoginPage />} />
           <Route path="/dashboard/our-services" element={<ServicesPage />} />

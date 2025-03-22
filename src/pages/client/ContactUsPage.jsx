@@ -3,6 +3,7 @@ import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/Footer";
 import { corporateFriendlyCountries, links } from "../../utils/paths";
 import { FaPhone } from "react-icons/fa6";
+import ContactUsForm from "../../components/inputs/ContactUsForm";
 
 const classStyles = {
   pageStyle: "flex flex-col justify-between lg:min-h-screen",
@@ -14,9 +15,9 @@ const classStyles = {
   infoItem: "flex items-center gap-3 text-gray-600",
   formContainer: "gap-3",
   input:
-    "w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 my-1",
+    "w-full lg:max-w-[50%] p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 my-1",
   button:
-    "w-full p-3 bg-blue-600 text-white font-semibold rounded-md transition my-1",
+    "w-full lg:max-w-[50%] p-3 bg-blue-600 text-white font-semibold rounded-md transition my-1",
 };
 
 const ContactUsPage = () => {
@@ -49,21 +50,7 @@ const ContactUsPage = () => {
         </div>
 
         {/* Contact Form Section */}
-        <div className={classStyles.formContainer}>
-          <input type="text" placeholder="Name" className={classStyles.input} />
-          <input
-            type="email"
-            placeholder="Email"
-            className={classStyles.input}
-          />
-          <select className={classStyles.input}>
-            {corporateFriendlyCountries.map((c) => (
-              <option>{c}</option>
-            ))}
-          </select>
-          <input type="tel" placeholder="Phone" className={classStyles.input} />
-          <button className={classStyles.button}>Submit</button>
-        </div>
+        <ContactUsForm serviceList={["test1", "test2", "test3"]} />
       </div>
       <Footer />
     </div>

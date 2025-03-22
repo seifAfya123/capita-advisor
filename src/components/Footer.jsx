@@ -2,10 +2,11 @@ import React from "react";
 import MainLogo from "./MainLogo";
 import { links } from "../utils/paths";
 import { Link } from "react-router-dom";
+import ContactUsForm from "./inputs/ContactUsForm";
 
 const classStyles = {
   footerContainer:
-    "bg-white flex flex-col-reverse lg:flex-row items-center justify-between px-[8rem] lg:px-20 py-6 w-full border-t border-none mt-6",
+    "bg-white flex flex-col-reverse lg:flex-row items-center justify-between px-[16px] lg:px-[8rem] py-6 w-full border-t border-none mt-6 gap-3",
   leftSide:
     "flex flex-col items-center lg:items-start gap-3 w-full lg:w-auto text-gray-700",
   rightSide: "flex flex-col items-center lg:items-end gap-2 w-full lg:w-auto",
@@ -24,7 +25,7 @@ const mediaLinks = [
     type: "ig",
     link: "",
   },
-  { 
+  {
     type: "x",
     link: "",
   },
@@ -32,7 +33,7 @@ const mediaLinks = [
 
 const Footer = ({ child }) => {
   return (
-    <div>
+    <div className="bg-white flex flex-col items-center mt-6">
       {child}
       <div className={classStyles.footerContainer}>
         {/* Left Side: Logo, Icons, and Copyright */}

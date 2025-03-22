@@ -9,13 +9,13 @@ const classStyles = {
   navBar:
     "sticky absolute top-0 left-0 w-full z-50 bg-white flex flex-col lg:flex-row items-center justify-between lg:px-[8rem] py-[8px]",
   navLinksContainer:
-    "flex flex-col lg:flex-row gap-3 lg:gap-[2rem] items-center w-full lg:w-auto",
+    "flex flex-col lg:flex-row gap-8 lg:gap-[3rem] items-center w-full lg:w-auto",
   activeNavLink:
     "rounded-xl lg:py-[0.4rem] px-[2rem] items-center lg:bg-[#191970] lg:text-white text-[1rem]",
   unActiveNavLink: "cursor-pointer text-[#191970]",
   menuIcon: "lg:hidden text-2xl cursor-pointer",
   mobileNav:
-    "flex flex-col items-center w-full absolute top-full left-0 bg-white shadow-md py-4 lg:hidden",
+    "flex flex-col items-center w-full absolute top-full left-0 bg-white shadow-md py-4 lg:hidden gap-2",
 };
 
 const NavBar = ({ tablink }) => {

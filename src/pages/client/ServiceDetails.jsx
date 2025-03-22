@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/Footer";
 import { links } from "../../utils/paths";
+import ContactUsForm from "../../components/inputs/ContactUsForm";
 
 const classStyles = {
   ServiceContainer:
@@ -45,7 +46,14 @@ const ServiceDetails = () => {
           dangerouslySetInnerHTML={{ __html: htmlText }}
         ></div>
       </div>
-      <Footer />
+      <Footer
+        child={
+          <div className="w-full lg:w-[50%] flex flex-col items-center justify-center gap-3 px-[16px] ">
+            Contact Us if you need this service
+            <ContactUsForm serviceID={"serviceid"} />
+          </div>
+        }
+      />
     </div>
   );
 };

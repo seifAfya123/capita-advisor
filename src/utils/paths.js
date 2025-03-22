@@ -8,6 +8,7 @@ export const links = {
   blog: "/blog",
 };
 export const corporateFriendlyCountries = [
+  "Select Countery",
   "Egypt",
   "Saudi Arabia (KSA)",
   "United Arab Emirates (UAE)",
@@ -60,7 +61,6 @@ export const homeService = [
   "Continuity of business & legacy",
   "Succession planning & transfer of wealth",
 ];
-
 
 export const servicesList = [
   {

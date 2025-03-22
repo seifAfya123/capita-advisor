@@ -49,7 +49,7 @@ const ServiceDetails = () => {
       <Footer
         child={
           <div className="w-full lg:w-[50%] flex flex-col items-center justify-center gap-3 px-[16px] ">
-            Contact Us if you need this service
+            <p className="mt-4 font-semibold">Contact Us if you need this service</p>
             <ContactUsForm serviceID={"serviceid"} />
           </div>
         }

@@ -7,6 +7,7 @@ import RegisterCompanyPage from "./pages/client/RegisterCompanyPage";
 import RegisterFormPage from "./pages/client/RegisterFormPage";
 import ContactUsPage from "./pages/client/ContactUsPage";
 import LoginPage from "./pages/admin/LoginPage";
+import { links } from "./utils/paths";
 
 
 export default function App() {
@@ -16,11 +17,12 @@ export default function App() {
         <Routes>
           {/* *** Client URLs *** */}
           <Route path="/" element={<Home />} />
-          <Route path="/our-services" element={<ServicesPage />} />
-          <Route path="/service-details" element={<ServiceDetails />} />
-          <Route path="/register-company" element={<RegisterCompanyPage />} />
-          <Route path="/register-form" element={<RegisterFormPage />} />
-          <Route path="/contact-us" element={<ContactUsPage />} />
+          <Route path={links.ourService} element={<ServicesPage />} />
+          <Route path={links.serviceDetails} element={<ServiceDetails />} />
+          <Route path={links.registerCompany} element={<RegisterCompanyPage />} />
+          <Route path={links.registerForm} element={<RegisterFormPage />} />
+          <Route path={links.contactUs} element={<ContactUsPage />} />
+          <Route path={links.blog} element={<ContactUsPage />} />
           {/* *** Dashbaord URLs *** */}
           <Route path="/dashbaord/login" element={<LoginPage />} />
           <Route path="/dashboard/our-services" element={<ServicesPage />} />

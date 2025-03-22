@@ -6,13 +6,15 @@ const classStyles = {
 
 const NewDropDown = ({ onchangeFunction, itemsList }) => {
   return (
-    <div>
+    <div >
+      
       <select
         className={classStyles.input}
         onChange={(e) => onchangeFunction(e)}
+
       >
         {itemsList.map((item) => (
-          <option>{item}</option>
+          <option key={item}>{item}</option>
         ))}
       </select>
     </div>

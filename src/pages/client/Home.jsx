@@ -80,6 +80,7 @@ const Home = () => {
                 text={serviceItem.text}
                 title={serviceItem.title}
                 key={serviceItem.key}
+                topage={links.blog}
               />
             ))}
           </div>

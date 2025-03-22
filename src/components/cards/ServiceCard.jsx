@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { links } from "../../utils/paths";
 
 const classStyles = {
   container:
@@ -25,6 +26,7 @@ export default function ServiceCard({
   text,
   image,
   serviceId,
+  topage=links.serviceDetails
 }) {
   const [showPopup, setShowPopup] = useState(false);
 
@@ -67,7 +69,7 @@ export default function ServiceCard({
             </button>
           </div>
         ) : (
-          <Link to="/service-details" className={classStyles.link}>
+          <Link to={topage} className={classStyles.link}>
             Get to know more →
           </Link>
         )}

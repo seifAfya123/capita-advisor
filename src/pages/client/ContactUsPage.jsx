@@ -11,13 +11,13 @@ const classStyles = {
     "flex flex-col lg:flex-row px-[16px] lg:px-16 lg:px-20 py-[16px] lg:py-12 gap-8 mt-3 bg-white rounded-2xl mx-[16px] lg:mx-[8rem] justify-between items-center",
   contactInfo: "flex flex-col gap-4",
   heading: "text-3xl font-bold ",
-  description: "text-lg font-medium text-gray-700",
-  infoItem: "flex items-center gap-3 text-gray-600",
+  description: "text-lg font-medium text-[#191970]-700",
+  infoItem: "flex items-center gap-3 text-[#191970]-600",
   formContainer: "gap-3",
   input:
-    "w-full lg:max-w-[50%] p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 my-1",
+    "w-full lg:max-w-[50%] p-3 rounded-md border border-[#191970]-300 focus:outline-none focus:ring-2 my-1",
   button:
-    "w-full lg:max-w-[50%] p-3 bg-blue-600 text-white font-semibold rounded-md transition my-1",
+    "w-full lg:max-w-[50%] p-3 bg-[#191970]-600 text-white font-semibold rounded-md transition my-1",
 };
 
 const ContactUsPage = () => {
@@ -34,16 +34,17 @@ const ContactUsPage = () => {
           </p>
 
           <div className={classStyles.infoItem}>
-            📧 Seif@manifestobusiness.com
+            📧 advisor@capitaadvisors.me
+
           </div>
-          <div className={classStyles.infoItem}>📞 +20-1012720084</div>
+          <div className={classStyles.infoItem}>📞 + 971 55 185 5799</div>
           <div className={classStyles.infoItem}>
-            📍 Office 123, Business Tower, Sheikh Zayed Road, Dubai, UAE
+            📍 Office 2414, Level 24, The Burjuman Business Tower, Dubai, United Arab Emirates
           </div>
           {/* Google Map Placeholder */}
           <iframe
             className="w-full h-48 rounded-xl"
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d94054.33214742577!2d31.607062929875955!3d30.086788199459328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2seg!4v1742586266767!5m2!1sen!2seg"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12338.338371647355!2d55.3003263!3d25.2547491!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d89592206d3%3A0x82bc297fcfeea797!2sThe%20Place%20-%20Dubai%20Chambers!5e1!3m2!1sen!2seg!4v1742646173722!5m2!1sen!2seg"
             allowFullScreen
             loading="lazy"
           ></iframe>

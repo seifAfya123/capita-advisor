@@ -5,9 +5,9 @@ const MainLogo = ({ width = "w-[100%]" }) => {
   return (
     <Link to={"/"}>
       <img
-        src="/logo.svg"
+        src="/MainLogo.svg"
         alt="logo"
-        className={`${width} my-1 overflow-hidden cursor-pointer`}
+        className={`${width} my-1 overflow-hidden cursor-pointer text-[#191970]`}
       />
     </Link>
   );

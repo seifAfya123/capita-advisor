@@ -8,7 +8,7 @@ import ContactUsForm from "../../components/inputs/ContactUsForm";
 const classStyles = {
   pageStyle: "flex flex-col justify-between lg:min-h-screen",
   container:
-    "flex flex-cols lg:flex-row px-[16px] lg:px-16 lg:px-20 py-[16px] lg:py-12 gap-8 mt-3 bg-white rounded-2xl mx-[16px] lg:mx-[8rem] justify-between items-center",
+    "flex flex-col lg:flex-row px-[16px] lg:px-16 lg:px-20 py-[16px] lg:py-12 gap-8 mt-3 bg-white rounded-2xl mx-[16px] lg:mx-[8rem] justify-between items-center",
   contactInfo: "flex flex-col gap-4",
   heading: "text-3xl font-bold ",
   description: "text-lg font-medium text-gray-700",

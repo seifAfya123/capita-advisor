@@ -61,7 +61,7 @@ const Home = () => {
           </div>
           <div className="  flex mt-5">
             <img
-              src="/callcenter.png"
+              src="/aboutus.png"
               alt="service"
               className="object-cover lg:w-[100%] rounded-xl "
             />

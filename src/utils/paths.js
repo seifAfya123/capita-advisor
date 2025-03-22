@@ -64,42 +64,42 @@ export const homeService = [
 
 export const servicesList = [
   {
-    image: "callcenter.png",
+    image: "service1.png",
     isAdmin: false,
     text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
     title: "title here",
     key: "1",
   },
   {
-    image: "callcenter.png",
+    image: "service2.png",
     isAdmin: false,
     text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
     title: "title here",
     key: "2",
   },
   {
-    image: "callcenter.png",
+    image: "service3.png",
     isAdmin: false,
     text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
     title: "title here",
     key: "3",
   },
   {
-    image: "callcenter.png",
+    image: "service1.png",
     isAdmin: false,
     text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
     title: "title here",
     key: "4",
   },
   {
-    image: "callcenter.png",
+    image: "service2.png",
     isAdmin: false,
     text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
     title: "title here",
     key: "5",
   },
   {
-    image: "callcenter.png",
+    image: "service3.png",
     isAdmin: false,
     text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
     title: "title here",

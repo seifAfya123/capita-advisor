@@ -4,7 +4,7 @@ const VideoPlayer = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="w-full h-[50vh] flex justify-center items-center bg-black">
+    <div className="w-full h-[50vh] flex justify-center items-center bg-black relative">
       {/* Placeholder Image */}
       {isLoading && (
         <img
@@ -18,13 +18,14 @@ const VideoPlayer = () => {
       <video
         className="w-full h-full object-cover"
         src="https://ak.picdn.net/shutterstock/videos/3640410097/preview/stock-footage-.mp4"
-        // src="https://www.youtube.com/watch?v=GsPwb82IjAE"
         autoPlay
         loop
         muted
-        controls
-        controlsList="nodownload noremoteplayback nofullscreen noplaybackrate"
-        onLoadedData={() => setIsLoading(false)} // Hide placeholder when video loads
+        onLoadedData={() => setIsLoading(false)}
+        style={{
+          pointerEvents: "none", // Prevents interaction
+          userSelect: "none", // Disables selection
+        }}
       >
         Your browser does not support the video tag.
       </video>

@@ -4,16 +4,7 @@ const VideoPlayer = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="w-full h-[50vh] flex justify-center items-center bg-black relative">
-      {/* Placeholder Image */}
-      {isLoading && (
-        <img
-          src="https://www.shutterstock.com/shutterstock/videos/3640410097/thumb/1.jpg?ip=x480"
-          alt="Video Placeholder"
-          className="absolute w-full h-full object-cover"
-        />
-      )}
-
+    <div className="relative w-full h-[50vh] flex justify-center items-center bg-black">
       {/* Video Player */}
       <video
         className="w-full h-full object-cover"
@@ -22,13 +13,16 @@ const VideoPlayer = () => {
         loop
         muted
         onLoadedData={() => setIsLoading(false)}
-        style={{
-          pointerEvents: "none", // Prevents interaction
-          userSelect: "none", // Disables selection
-        }}
-      >
-        Your browser does not support the video tag.
-      </video>
+      />
+
+      {/* Overlay Text */}
+      <div className="absolute text-white text-start px-4 w-full h-[100%] bg-black-100 flex flex-col justify-center p-[16px] lg:p-[8rem]">
+        <h1 className="text-2xl font-bold">Start a free consultation today!</h1>
+        <p className="text-lg">
+          Tailored Corporate Structuring Advisory, Business Set-up & Banking
+          Solutions and Offshore Company Formation.
+        </p>
+      </div>
     </div>
   );
 };

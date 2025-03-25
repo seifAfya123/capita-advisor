@@ -4,7 +4,7 @@ const VideoPlayer = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="w-full h-[80vh] flex justify-center items-center bg-black">
+    <div className="w-full h-[50vh] flex justify-center items-center bg-black">
       {/* Placeholder Image */}
       {isLoading && (
         <img

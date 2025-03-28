@@ -9,6 +9,8 @@ export const links = {
   blogs: "/blogs",
   // ____________________________
   dashboardLogin: "/dashboard/login",
+  dashboard_ourServices: "/dashboard/our-services",
+  dashboard_ourContactRequests: "/dashboard/our-contact",
 
 };
 export const corporateFriendlyCountries = [

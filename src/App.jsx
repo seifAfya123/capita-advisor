@@ -10,6 +10,7 @@ import LoginPage from "./pages/admin/LoginPage";
 import { links } from "./utils/paths";
 import BlogDetailsPage from "./pages/client/BlogDetailsPage";
 import BlogsPage from "./pages/client/BlogsPage";
+import ContactRequests from "./pages/admin/ContactRequests";
 
 export default function App() {
   return (
@@ -30,7 +31,10 @@ export default function App() {
           <Route path={links.blogs} element={<BlogsPage />} />
           {/* *** Dashbaord URLs *** */}
           <Route path={links.dashboardLogin} element={<LoginPage />} />
-          <Route path="/dashboard/our-services" element={<ServicesPage />} />
+          <Route
+            path={links.dashboard_ourContactRequests}
+            element={<ContactRequests />}
+          />
           <Route
             path="/dashboard/service/details"
             element={<ServiceDetails />}

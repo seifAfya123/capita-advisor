@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import MainLogo from "../../components/MainLogo";
 
 const classStyles = {
-  page: "flex h-screen items-center justify-center mx-24",
+  page: "flex h-screen items-center justify-center lg:mx-24  ",
   container:
-    "min-w-[450px] max-w-[40%] rounded-2xl bg-white p-[3rem] gap-[1rem] flex flex-col items-center  ",
+    "lg:min-w-[450px] lg:max-w-[40%] rounded-2xl bg-white p-[8px] lg:p-[3rem] gap-[1rem] flex flex-col items-center mx-[16px] ",
   logo: "w-[80%] my-1 overflow-hidden  ",
   inputContainer: "w-full overflow-hidden p-2 rounded-lg bg-[#F2F5FF]",
   input: "w-full overflow-hidden focus:outline-none focus:ring-0 text-black",

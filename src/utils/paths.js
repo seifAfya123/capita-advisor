@@ -5,7 +5,11 @@ export const links = {
   registerCompany: "/register-company",
   registerForm: "/register-company/:id",
   contactUs: "/contact-us",
-  blog: "/blog-details",
+  blogDetails: "/blog-details",
+  blogs: "/blogs",
+  // ____________________________
+  dashboardLogin: "/dashboard/login",
+
 };
 export const corporateFriendlyCountries = [
   "Select Countery",

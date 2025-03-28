@@ -40,6 +40,16 @@ const NavBar = ({ tablink }) => {
         </Link>
         <Link
           className={
+            tablink === links.blogs
+              ? classStyles.activeNavLink
+              : classStyles.unActiveNavLink
+          }
+          to={links.blogs}
+        >
+          Blogs
+        </Link>
+        <Link
+          className={
             tablink === links.ourService
               ? classStyles.activeNavLink
               : classStyles.unActiveNavLink
@@ -94,6 +104,17 @@ const NavBar = ({ tablink }) => {
             onClick={handelClick}
           >
             Our Services
+          </Link>
+          <Link
+            className={
+              tablink === links.blogs
+                ? classStyles.activeNavLink
+                : classStyles.unActiveNavLink
+            }
+            to={links.blogs}
+            onClick={handelClick}
+          >
+            Our Blogs
           </Link>
           <Link
             className={

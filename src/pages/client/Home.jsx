@@ -6,6 +6,7 @@ import VideoPlayer from "../../components/cards/VideoPlayer";
 import YouTubePlayer from "../../components/cards/YouTubePlayer ";
 import HomeServiceCard from "../../components/cards/HomeServiceCard";
 import ServiceCard from "../../components/cards/ServiceCard";
+import { Link } from "react-router-dom";
 
 const classStyles = {
   bodyStyle: "mx-[16px] md:mx-[8rem] flex flex-col md:flex-wrap",
@@ -70,9 +71,14 @@ const Home = () => {
       </div>
       <div className=" px-[16px] lg:px-[8rem] justify-between pt-[3rem]">
         <div className=" flex flex-col">
-          <h1 className="font-semibold text-2xl ">Our Blogs</h1>
+          <h1 className="font-semibold text-2xl flex flex-row justify-between">
+            Our Blogs
+            <Link className={classStyles.navLink} to={links.blogs}>
+              See More
+            </Link>
+          </h1>
           <br />
-          <div className="flex flex-col lg:flex-row flex-wrap gap-4">
+          <div className="flex flex-col lg:flex-row flex-wrap lg:grid-cols-4 justify-between gap-y-5">
             {servicesList.map((serviceItem) => (
               <ServiceCard
                 image={serviceItem.image}
@@ -80,7 +86,7 @@ const Home = () => {
                 text={serviceItem.text}
                 title={serviceItem.title}
                 key={serviceItem.key}
-                topage={links.blog}
+                topage={links.blogDetails}
               />
             ))}
           </div>

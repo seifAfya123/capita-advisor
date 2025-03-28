@@ -18,7 +18,7 @@ const classStyles = {
 const BlogDetailsPage = () => {
   return (
     <div className="lg:min-h-screen flex flex-col justify-between">
-      <NavBar tablink={links.ourService} />
+      <NavBar tablink={links.blogs} />
       <div className={classStyles.ServiceContainer}>
         <img
           className={classStyles.serviceImage}

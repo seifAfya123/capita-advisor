@@ -4,7 +4,7 @@ import { links } from "../../utils/paths";
 
 const classStyles = {
   container:
-    " min-w-[250px] max-w-[400px] rounded-2xl overflow-hidden shadow-lg bg-white cursor-pointer ",
+    " w-full lg:max-w-[33%] rounded-2xl overflow-hidden shadow-lg bg-white cursor-pointer ",
   image: "w-full h-48 object-cover",
   content: "p-5",
   title: "text-xl font-bold mb-2",

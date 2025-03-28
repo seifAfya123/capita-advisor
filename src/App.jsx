@@ -9,7 +9,7 @@ import ContactUsPage from "./pages/client/ContactUsPage";
 import LoginPage from "./pages/admin/LoginPage";
 import { links } from "./utils/paths";
 import BlogDetailsPage from "./pages/client/BlogDetailsPage";
-
+import BlogsPage from "./pages/client/BlogsPage";
 
 export default function App() {
   return (
@@ -20,18 +20,37 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path={links.ourService} element={<ServicesPage />} />
           <Route path={links.serviceDetails} element={<ServiceDetails />} />
-          <Route path={links.registerCompany} element={<RegisterCompanyPage />} />
+          <Route
+            path={links.registerCompany}
+            element={<RegisterCompanyPage />}
+          />
           <Route path={links.registerForm} element={<RegisterFormPage />} />
           <Route path={links.contactUs} element={<ContactUsPage />} />
-          <Route path={links.blog} element={<BlogDetailsPage />} />
+          <Route path={links.blogDetails} element={<BlogDetailsPage />} />
+          <Route path={links.blogs} element={<BlogsPage />} />
           {/* *** Dashbaord URLs *** */}
-          <Route path="/dashbaord/login" element={<LoginPage />} />
+          <Route path={links.dashboardLogin} element={<LoginPage />} />
           <Route path="/dashboard/our-services" element={<ServicesPage />} />
-          <Route path="/dashboard/service/details" element={<ServiceDetails />} />
-          <Route path="/dashboard/register/countries" element={<RegisterCompanyPage />} />
-          <Route path="/dashboard/register/form" element={<RegisterFormPage />} />
-          <Route path="/dashboard/register/requests" element={<RegisterFormPage />} />
-          <Route path="/dashboard/contact-requests" element={<ContactUsPage />} />
+          <Route
+            path="/dashboard/service/details"
+            element={<ServiceDetails />}
+          />
+          <Route
+            path="/dashboard/register/countries"
+            element={<RegisterCompanyPage />}
+          />
+          <Route
+            path="/dashboard/register/form"
+            element={<RegisterFormPage />}
+          />
+          <Route
+            path="/dashboard/register/requests"
+            element={<RegisterFormPage />}
+          />
+          <Route
+            path="/dashboard/contact-requests"
+            element={<ContactUsPage />}
+          />
         </Routes>
       </div>
     </Router>

@@ -61,6 +61,9 @@ const Footer = ({ child }) => {
           <Link className={classStyles.navLink} to={links.contactUs}>
             Contact Us
           </Link>
+          <Link className={classStyles.navLink} to={links.blogs}>
+            Blogs
+          </Link>
         </div>
       </div>
     </div>

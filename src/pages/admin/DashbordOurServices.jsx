@@ -1,6 +1,7 @@
 import React from 'react'
 import SideMenu from '../../components/admin/SideMenu';
 import { links } from '../../utils/paths';
+import OurServiceSectionDB from '../../components/admin/OurServiceSectionDB';
 
 
 const stylesClass = {
@@ -11,7 +12,7 @@ const DashbordOurServices = () => {
     return (
         <div className={stylesClass.pageStyle}>
           <SideMenu currentPage={links.dashboard_ourServices} />
-          <div></div>
+          <OurServiceSectionDB/>
         </div>
       );
 }

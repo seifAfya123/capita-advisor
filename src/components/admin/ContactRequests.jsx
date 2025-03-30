@@ -12,11 +12,11 @@ const ContactRequests = ({ itemsList }) => {
   return (
     <div className="flex flex-col w-full h-screen mx-4 mt-4">
       <div className="rounded-[16px] bg-white flex flex-col ">
-        <div className="flex flex-row p-2 items-center gap-2 ">
+        <div className="flex flex-row p-2 items-center gap-2  ">
           <div className="flex-1">
             <NewInputFeild placeHolderText={"Search by name or email"} />
           </div>
-          <div className=" flex flex-row w-full flex-2 gap-2">
+          <div className=" flex flex-row w-full flex-2 gap-2 ">
             <NewDropDown itemsList={["Select Service"].concat(homeService)} />
             <NewDropDown itemsList={corporateFriendlyCountries} />
             <NewDropDown itemsList={["Select type", "Stared", "Un-Stared"]} />

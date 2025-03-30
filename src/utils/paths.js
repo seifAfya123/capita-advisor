@@ -10,7 +10,11 @@ export const links = {
   // ____________________________
   dashboardLogin: "/dashboard/login",
   dashboard_ourServices: "/dashboard/our-services",
+  dashboard_ourServices_details: "/dashboard/our-services/details",
   dashboard_ourContactRequests: "/dashboard/our-contact",
+  dashboard_companyRegiseration: "/dashboard/company-reg",
+  dashboard_ourBlogs: "/dashboard/our-blogs",
+  dashboard_info: "/dashboard/our-info",
 
 };
 export const corporateFriendlyCountries = [
@@ -67,6 +71,54 @@ export const homeService = [
   "Continuity of business & legacy",
   "Succession planning & transfer of wealth",
 ];
+
+export const conatctRequestsData = [
+  {
+    "name": "John Doe",
+    "email": "johndoe@gmail.com",
+    "phone": "+123456789",
+    "service": "Web Development",
+    "country": "USA",
+    "date": "2025-03-30",
+    "isService": true
+  },
+  {
+    "name": "Alice Smith",
+    "email": "alice.smith@example.com",
+    "phone": "+987654321",
+    "service": "Graphic Design",
+    "country": "Canada",
+    "date": "2025-03-29",
+    "isService": false
+  },
+  {
+    "name": "Michael Johnson",
+    "email": "michael.j@example.com",
+    "phone": "+1122334455",
+    "service": "Mobile App Development",
+    "country": "UK",
+    "date": "2025-03-28",
+    "isService": true
+  },
+  {
+    "name": "Sophia Brown",
+    "email": "sophia.brown@example.com",
+    "phone": "+9988776655",
+    "service": "SEO Optimization",
+    "country": "Australia",
+    "date": "2025-03-27",
+    "isService": false
+  },
+  {
+    "name": "David Wilson",
+    "email": "david.w@example.com",
+    "phone": "+5544332211",
+    "service": "Digital Marketing",
+    "country": "Germany",
+    "date": "2025-03-26",
+    "isService": true
+  }
+]
 
 export const servicesList = [
   {

@@ -6,11 +6,16 @@ import Home from "./pages/client/Home";
 import RegisterCompanyPage from "./pages/client/RegisterCompanyPage";
 import RegisterFormPage from "./pages/client/RegisterFormPage";
 import ContactUsPage from "./pages/client/ContactUsPage";
-import LoginPage from "./pages/admin/LoginPage";
 import { links } from "./utils/paths";
 import BlogDetailsPage from "./pages/client/BlogDetailsPage";
 import BlogsPage from "./pages/client/BlogsPage";
-import ContactRequests from "./pages/admin/ContactRequests";
+import LoginPage from "./pages/admin/LoginPage";
+import DashbordContactReqs from "./pages/admin/DashbordContactReqs";
+import DashbordOurServices from "./pages/admin/DashbordOurServices";
+import DashbordInfo from "./pages/admin/DashbordInfo";
+import DashbordOurBlogs from "./pages/admin/DashbordOurBlogs";
+import DashbordCompanyReg from "./pages/admin/DashbordCompanyReg";
+
 
 export default function App() {
   return (
@@ -33,23 +38,32 @@ export default function App() {
           <Route path={links.dashboardLogin} element={<LoginPage />} />
           <Route
             path={links.dashboard_ourContactRequests}
-            element={<ContactRequests />}
+            element={<DashbordContactReqs />}
           />
+          {/* Our services and its requests and its form */}
           <Route
-            path="/dashboard/service/details"
-            element={<ServiceDetails />}
+            path={links.dashboard_ourServices}
+            element={<DashbordOurServices />}
+            />
+          <Route
+            path={links.dashboard_ourServices_details}
+            element={<DashbordOurServices />}
+            />
+
+            {/* Our counteries and its requests and its form */}
+          <Route
+            path={links.dashboard_companyRegiseration}
+            element={<DashbordCompanyReg />}
           />
+          {/* Our counteries and its requests and its form */}
           <Route
-            path="/dashboard/register/countries"
-            element={<RegisterCompanyPage />}
+            path={links.dashboard_info}
+            element={<DashbordInfo />}
           />
+          {/* Our Blogs and its requests and its form */}
           <Route
-            path="/dashboard/register/form"
-            element={<RegisterFormPage />}
-          />
-          <Route
-            path="/dashboard/register/requests"
-            element={<RegisterFormPage />}
+            path={links.dashboard_ourBlogs}
+            element={<DashbordOurBlogs />}
           />
           <Route
             path="/dashboard/contact-requests"

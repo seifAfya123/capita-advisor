@@ -11,12 +11,8 @@ import { Link } from "react-router-dom";
 const classStyles = {
   bodyStyle: "mx-[16px] md:mx-[8rem] flex flex-col md:flex-wrap",
   imageStyle: "w-full h-[45rem] lg:h-[70%] object-cover",
-  card1: "rounded-2xl w-full h-[5rem] hidden md:w-[5rem] md:h-[5rem] ",
-  card2: "rounded-2xl w-full h-[5rem] hidden md:w-[5rem] md:h-[5rem] ",
-  card3: "rounded-2xl w-full h-[5rem] hidden md:w-[5rem] md:h-[5rem] ",
-  card4: "rounded-2xl w-full h-[5rem] hidden md:w-[5rem] md:h-[5rem] ",
-  card5: "rounded-2xl w-full h-[5rem] hidden md:w-[5rem] md:h-[5rem] ",
-  card6: "rounded-2xl w-full h-[5rem] hidden md:w-[5rem] md:h-[5rem] ",
+  seemore: "text-sm ",
+
 };
 const Home = () => {
   return (
@@ -71,14 +67,14 @@ const Home = () => {
       </div>
       <div className=" px-[16px] lg:px-[8rem] justify-between pt-[3rem]">
         <div className=" flex flex-col">
-          <h1 className="font-semibold text-2xl flex flex-row justify-between">
+          <h1 className="font-semibold text-2xl flex flex-row justify-between items-end">
             Our Blogs
-            <Link className={classStyles.navLink} to={links.blogs}>
-              See More
+            <Link className={classStyles.seemore} to={links.blogs}>
+              see More
             </Link>
           </h1>
           <br />
-          <div className="flex flex-col lg:flex-row flex-wrap lg:grid-cols-4 justify-between gap-y-5">
+          <div className="flex flex-col lg:flex-row flex-wrap lg:grid-cols-4 justify-between gap-y-6">
             {servicesList.map((serviceItem) => (
               <ServiceCard
                 image={serviceItem.image}

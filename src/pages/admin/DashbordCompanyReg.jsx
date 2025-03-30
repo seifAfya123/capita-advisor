@@ -1,6 +1,7 @@
 import React from 'react'
 import { conatctRequestsData, links } from "../../utils/paths";
 import SideMenu from "../../components/admin/SideMenu";
+import CompanyRegSectionDB from '../../components/admin/CompanyRegSectionDB';
 
 const stylesClass = {
     pageStyle: " flex flex-row ",
@@ -10,7 +11,7 @@ const DashbordCompanyReg = () => {
     return (
         <div className={stylesClass.pageStyle}>
           <SideMenu currentPage={links.dashboard_companyRegiseration} />
-          <div></div>
+          <CompanyRegSectionDB/>
         </div>
       );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/Footer";
-import { links } from "../../utils/paths";
+import { countries, links } from "../../utils/paths";
 import CounteryCard from "../../components/cards/CounteryCard";
 const classStyles = {
   pageStyle: "flex flex-col justify-between lg:min-h-screen",
@@ -13,16 +13,7 @@ const classStyles = {
   descrip: "mb-3 text-[0.9rem] lg:text-[1.2rem]",
 };
 
-const countries = [
-  { image: "/countries/egypt.svg", name: "Cairo - Egypt" },
-  { image: "/countries/uae.svg", name: "Dubai - UAE" },
-  { image: "/countries/ksa.svg", name: "Riyadh - KSA" },
-  { image: "/countries/hong.svg", name: "Central - Hong Kong" },
-  { image: "/countries/maut.svg", name: "Ebene - Mauritius" },
-  { image: "/countries/cyps.svg", name: "Limassol - Cyprus" },
-  { image: "/countries/india.svg", name: "Mumbai - India" },
-  { image: "/countries/sing.svg", name: "Telok Ayer - Singapore" },
-];
+
 
 const RegisterCompanyPage = () => {
   return (

@@ -1,11 +1,13 @@
+import MainButton from "../buttons/MainButton";
+
 const classStyles = {
   cardStyle:
-    "rounded-xl border border-gray-300 w-full sm:w-[90%] lg:w-[23.5%] flex flex-col items-center pb-[1rem] p-4",
+    "rounded-xl border border-gray-300 w-full sm:w-[90%] lg:w-[23.5%] flex flex-col items-center pb-[1rem] p-4 bg-white",
   imageStyle: "w-[85%] max-w-[200px]", // Ensure image scales properly
   toggleOn: "rounded-xl bg-green-500 w-[8rem] h-[2rem] text-white text-center",
   toggleOff: "rounded-xl bg-gray-500 w-[8rem] h-[2rem] text-white text-center",
-  headline: "w-full flex flex-row justify-between text-[1rem] font-bold",
-  textContainer: "w-full text-center text-[1.3rem] font-medium break-words",
+  headline: "w-full flex flex-row justify-between text-[1rem] font-bold gap-2 ",
+  textContainer: "w-full text-center text-[1rem] font-medium break-words",
   buttonContainer: "flex flex-col gap-2 mt-2 w-full items-center",
 };
 
@@ -33,7 +35,7 @@ const CounteryCard = ({
       {!isAdmin && (
         <div className={classStyles.textContainer}>{counteryName}</div>
       )}
-      {isActive && (
+      {isAdmin && (
         <div className={classStyles.buttonContainer}>
           <MainButton
             onclickfunction={handleViewRequest}

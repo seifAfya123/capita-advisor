@@ -120,6 +120,17 @@ export const conatctRequestsData = [
   }
 ]
 
+
+export const countries = [
+  { image: "/countries/egypt.svg", name: "Cairo - Egypt" },
+  { image: "/countries/uae.svg", name: "Dubai - UAE" },
+  { image: "/countries/ksa.svg", name: "Riyadh - KSA" },
+  { image: "/countries/hong.svg", name: "Central - Hong Kong" },
+  { image: "/countries/maut.svg", name: "Ebene - Mauritius" },
+  { image: "/countries/cyps.svg", name: "Limassol - Cyprus" },
+  { image: "/countries/india.svg", name: "Mumbai - India" },
+  { image: "/countries/sing.svg", name: "Telok Ayer - Singapore" },
+];
 export const servicesList = [
   {
     image: "service1.png",

@@ -14,8 +14,6 @@ const classStyles = {
   error: "text-red-500 ",
 };
 
-
-
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,8 +23,10 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(false);
-    const url = `${backendDomainName}/api/admin/login`;
+    const url = "http://localhost:8000/api/admin/login"; //undefind ?????????
     try {
+      console.log("here");
+
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -50,7 +50,7 @@ const LoginPage = () => {
   };
   return (
     <div className={classStyles.page}>
-      <form action="">
+      <form action="" onSubmit={(e) => handleLogin(e)}>
         <div className={classStyles.container}>
           Welcome back !
           <MainLogo width="w-[8rem]" />
@@ -70,12 +70,7 @@ const LoginPage = () => {
               className={classStyles.input}
             />
           </div>
-          <button
-            className={classStyles.button}
-            onSubmit={(e) => handleLogin(e)}
-          >
-            Login
-          </button>
+          <button className={classStyles.button}>Login</button>
           {error && (
             <p className={classStyles.error}>Invalid email or password</p>
           )}

@@ -20,11 +20,13 @@ const Home = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    const url = `${backendDomainName}/api/blogs?language=${language}`;
+    const url = `${backendDomainName}/api/blogs/client?language=${language}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data);
+        console.log(data);
+        
       })
       .catch((err) => console.error("Error fetching blogs:", err));
   }, []);
@@ -88,12 +90,12 @@ const Home = () => {
           </h1>
           <br />
           <div className="flex flex-col lg:flex-row flex-wrap lg:grid-cols-4 justify-between gap-y-6">
-            {servicesList.map((serviceItem) => (
+            {blogs.map((serviceItem) => (
               <ServiceCard
                 image={serviceItem.image}
                 isAdmin={serviceItem.isAdmin}
-                text={serviceItem.text}
-                title={serviceItem.title}
+                text={serviceItem.brief.en}
+                title={serviceItem.title.en}
                 key={serviceItem.key}
                 topage={links.blogDetails}
               />

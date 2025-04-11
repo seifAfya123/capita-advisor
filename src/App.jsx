@@ -16,7 +16,6 @@ import DashbordInfo from "./pages/admin/DashbordInfo";
 import DashbordOurBlogs from "./pages/admin/DashbordOurBlogs";
 import DashbordCompanyReg from "./pages/admin/DashbordCompanyReg";
 
-
 export default function App() {
   return (
     <Router>
@@ -25,14 +24,17 @@ export default function App() {
           {/* *** Client URLs *** */}
           <Route path="/" element={<Home />} />
           <Route path={links.ourService} element={<ServicesPage />} />
-          <Route path={links.serviceDetails} element={<ServiceDetails />} />
+          <Route path={`${links.serviceDetails}/:id`} element={<ServiceDetails />} />
           <Route
             path={links.registerCompany}
             element={<RegisterCompanyPage />}
           />
           <Route path={links.registerForm} element={<RegisterFormPage />} />
           <Route path={links.contactUs} element={<ContactUsPage />} />
-          <Route path={links.blogDetails} element={<BlogDetailsPage />} />
+          <Route
+            path={`${links.blogDetails}/:id`}
+            element={<BlogDetailsPage />}
+          />
           <Route path={links.blogs} element={<BlogsPage />} />
           {/* *** Dashbaord URLs *** */}
           <Route path={links.dashboardLogin} element={<LoginPage />} />
@@ -44,22 +46,19 @@ export default function App() {
           <Route
             path={links.dashboard_ourServices}
             element={<DashbordOurServices />}
-            />
+          />
           <Route
-            path={links.dashboard_ourServices_details}
+            path={`${links.dashboard_ourServices_details}/:id`}
             element={<DashbordOurServices />}
-            />
+          />
 
-            {/* Our counteries and its requests and its form */}
+          {/* Our counteries and its requests and its form */}
           <Route
             path={links.dashboard_companyRegiseration}
             element={<DashbordCompanyReg />}
           />
           {/* Our counteries and its requests and its form */}
-          <Route
-            path={links.dashboard_info}
-            element={<DashbordInfo />}
-          />
+          <Route path={links.dashboard_info} element={<DashbordInfo />} />
           {/* Our Blogs and its requests and its form */}
           <Route
             path={links.dashboard_ourBlogs}

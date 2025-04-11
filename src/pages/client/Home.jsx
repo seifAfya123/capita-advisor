@@ -1,7 +1,12 @@
 // import React from "react";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/navbar/NavBar";
-import { backendDomainName, homeService, links, servicesList } from "../../utils/paths";
+import {
+  backendDomainName,
+  homeService,
+  links,
+  servicesList,
+} from "../../utils/paths";
 import VideoPlayer from "../../components/cards/VideoPlayer";
 import YouTubePlayer from "../../components/cards/YouTubePlayer ";
 import HomeServiceCard from "../../components/cards/HomeServiceCard";
@@ -26,7 +31,6 @@ const Home = () => {
       .then((data) => {
         setBlogs(data);
         console.log(data);
-        
       })
       .catch((err) => console.error("Error fetching blogs:", err));
   }, []);
@@ -66,8 +70,8 @@ const Home = () => {
             </p>
             <br />
             <div className="flex flex-wrap gap-2">
-              {homeService.map((serviceName,index) => (
-                <HomeServiceCard text={serviceName} key={index}/>
+              {homeService.map((serviceName, index) => (
+                <HomeServiceCard text={serviceName} key={index} />
               ))}
             </div>
           </div>
@@ -97,7 +101,7 @@ const Home = () => {
                 text={serviceItem.brief}
                 title={serviceItem.title}
                 key={serviceItem.key}
-                topage={links.blogDetails}
+                topage={`${links.blogDetails}/${serviceItem._id}`}
               />
             ))}
           </div>

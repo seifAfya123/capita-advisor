@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/Footer";
 import ContactUsForm from "../../components/inputs/ContactUsForm";
-import { htmlText, links } from "../../utils/paths";
-
+import { backendDomainName, links } from "../../utils/paths";
 
 const classStyles = {
   ServiceContainer:
@@ -14,32 +14,72 @@ const classStyles = {
   ServiceDescription: "text-md px-[1rem] lg:px-[3rem] py-[1rem]",
 };
 
-
 const BlogDetailsPage = () => {
+  const { id } = useParams(); // get ID from URL
+  const [service, setService] = useState(null);
+  const language = localStorage.getItem("lang") || "en";
+
+  useEffect(() => {
+    console.log(id);
+
+    const fetchService = async () => {
+      try {
+        const response = await fetch(
+          `${backendDomainName}/api/blogs/clinet/${id}?language=${language}`
+        );
+        
+        if (!response.ok) {
+          throw new Error("Failed to fetch service");
+        }
+        
+        const data = await response.json();
+        console.log(data.brief);
+
+        const formatted = {
+          id: data._id,
+          title: data["title"],
+          brief: data.brief,
+          desc: data["description"],
+          image: data.image,
+        };
+
+        setService(formatted);
+      } catch (error) {
+        console.error("Error fetching service:", error);
+      }
+    };
+
+    if (id) {
+      fetchService();
+    }
+  }, [id, language]);
+
   return (
     <div className="lg:min-h-screen flex flex-col justify-between">
       <NavBar tablink={links.blogs} />
-      <div className={classStyles.ServiceContainer}>
-        <img
-          className={classStyles.serviceImage}
-          src="callcenter.png"
-          alt="Service image"
-        />
-        <p className={classStyles.serviceTitle}>
-          The Essence of Service: Why It Matters in Every Industry
-        </p>
-        <div
-          className={classStyles.ServiceDescription}
-          dangerouslySetInnerHTML={{ __html:htmlText }}
-        ></div>
-      </div>
+
+      {service && (
+        <div className={classStyles.ServiceContainer}>
+          <img
+            className={classStyles.serviceImage}
+            src={service.image}
+            alt="Service image"
+          />
+          <p className={classStyles.serviceTitle}>{service.title}</p>
+          <div
+            className={classStyles.ServiceDescription}
+            dangerouslySetInnerHTML={{ __html: service.desc }}
+          />
+        </div>
+      )}
+
       <Footer
         child={
           <div className="w-full lg:w-[50%] flex flex-col items-center justify-center gap-3 px-[16px] ">
             <p className="mt-4 font-semibold">
               Contact Us if you need this service
             </p>
-            <ContactUsForm serviceID={"serviceid"} />
+            <ContactUsForm serviceID={service?.id || ""} />
           </div>
         }
       />

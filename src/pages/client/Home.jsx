@@ -20,7 +20,7 @@ const Home = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    const url = `${backendDomainName}/api/blogs/client?language=${language}`;
+    const url = `${backendDomainName}/api/blogs/clinet/recent?language=${language}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -94,8 +94,8 @@ const Home = () => {
               <ServiceCard
                 image={serviceItem.image}
                 isAdmin={serviceItem.isAdmin}
-                text={serviceItem.brief.en}
-                title={serviceItem.title.en}
+                text={serviceItem.brief}
+                title={serviceItem.title}
                 key={serviceItem.key}
                 topage={links.blogDetails}
               />

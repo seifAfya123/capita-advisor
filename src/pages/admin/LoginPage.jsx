@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MainLogo from "../../components/MainLogo";
 import { useNavigate } from "react-router-dom";
-import { links } from "../../utils/paths";
+import { backendDomainName, links } from "../../utils/paths";
 
 const classStyles = {
   page: "flex h-screen items-center justify-center lg:mx-24  ",
@@ -23,7 +23,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(false);
-    const url = "http://localhost:8000/api/admin/login"; //undefind ?????????
+    const url = `${backendDomainName}/api/admin/login`; //undefind ?????????
     try {
       console.log("here");
 

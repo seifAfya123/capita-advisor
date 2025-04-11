@@ -8,15 +8,17 @@ export const links = {
   blogDetails: "/blog-details",
   blogs: "/blogs",
   // ____________________________
-  dashboardLogin: "/dashboard/login",
-  dashboard_ourServices: "/dashboard/our-services",
-  dashboard_ourServices_details: "/dashboard/our-services/details",
-  dashboard_ourContactRequests: "/dashboard/our-contact",
-  dashboard_companyRegiseration: "/dashboard/company-reg",
-  dashboard_ourBlogs: "/dashboard/our-blogs",
-  dashboard_info: "/dashboard/our-info",
+  dashboardLogin: "/db/login",
+  dashboard_ourServices: "/db/our-services",
+  dashboard_ourServices_details: "/db/our-services/details",
+  dashboard_ourContactRequests: "/db/our-contact",
+  dashboard_companyRegiseration: "/db/company-reg",
+  dashboard_ourBlogs: "/db/our-blogs",
+  dashboard_info: "/db/our-info",
 
 };
+
+export const backendDomainName ="http://localhost:8000"
 export const corporateFriendlyCountries = [
   "Select Countery",
   "Egypt",

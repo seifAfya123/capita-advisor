@@ -1,20 +1,33 @@
-import React from "react";
+// import React from "react";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/navbar/NavBar";
-import { homeService, links, servicesList } from "../../utils/paths";
+import { backendDomainName, homeService, links, servicesList } from "../../utils/paths";
 import VideoPlayer from "../../components/cards/VideoPlayer";
 import YouTubePlayer from "../../components/cards/YouTubePlayer ";
 import HomeServiceCard from "../../components/cards/HomeServiceCard";
 import ServiceCard from "../../components/cards/ServiceCard";
 import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 const classStyles = {
   bodyStyle: "mx-[16px] md:mx-[8rem] flex flex-col md:flex-wrap",
   imageStyle: "w-full h-[45rem] lg:h-[70%] object-cover",
   seemore: "text-sm ",
-
 };
+
 const Home = () => {
+  const language = localStorage.getItem("language") || "en";
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const url = `${backendDomainName}/api/blogs?language=${language}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setBlogs(data);
+      })
+      .catch((err) => console.error("Error fetching blogs:", err));
+  }, []);
   return (
     <div className="min-h-screen w-full flex flex-col justify-between absolute">
       <NavBar tablink={links.home} />
@@ -51,8 +64,8 @@ const Home = () => {
             </p>
             <br />
             <div className="flex flex-wrap gap-2">
-              {homeService.map((serviceName) => (
-                <HomeServiceCard text={serviceName} />
+              {homeService.map((serviceName,index) => (
+                <HomeServiceCard text={serviceName} key={index}/>
               ))}
             </div>
           </div>

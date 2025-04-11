@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import MainLogo from "../../components/MainLogo";
+import { useNavigate } from "react-router-dom";
+import { links } from "../../utils/paths";
 
 const classStyles = {
   page: "flex h-screen items-center justify-center lg:mx-24  ",
@@ -12,30 +14,51 @@ const classStyles = {
   error: "text-red-500 ",
 };
 
-const handelLogin = () => {
-  // post login request
-  // If sucess save token to local storage then nav to home
-  // If faild show error message
-  SetError(true);
-};
 
-const onchangeInput = () => {
-  SetError(false);
-};
 
 const LoginPage = () => {
-  const [error, SetError] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError(false);
+    const url = `${backendDomainName}/api/admin/login`;
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.token) {
+        localStorage.setItem("token", data.token);
+        navigate(links.dashboard_companyRegiseration);
+      } else {
+        setError(true);
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setError(true);
+    }
+  };
   return (
     <div className={classStyles.page}>
       <form action="">
         <div className={classStyles.container}>
           Welcome back !
-          <MainLogo width="w-[8rem]"/>
+          <MainLogo width="w-[8rem]" />
           <div className={classStyles.inputContainer}>
             <input
               type="text"
               placeholder="Enter email"
-              onChange={() => {}}
+              onChange={(e) => setEmail(e.target.value)}
               className={classStyles.input}
             />
           </div>
@@ -43,13 +66,13 @@ const LoginPage = () => {
             <input
               type="text"
               placeholder="Enter password"
-              onChange={() => {}}
+              onChange={(e) => setPassword(e.target.value)}
               className={classStyles.input}
             />
           </div>
           <button
             className={classStyles.button}
-            onSubmit={() => SetError(true)}
+            onSubmit={(e) => handleLogin(e)}
           >
             Login
           </button>

@@ -5,6 +5,7 @@ import { FaPhone, FaStar, FaRegStar, FaCopy } from "react-icons/fa6";
 import { IoLocationSharp } from "react-icons/io5";
 import { SiSmartthings } from "react-icons/si";
 import { RiDownload2Line } from "react-icons/ri";
+import { backendDomainName } from "../../utils/paths";
 
 const stylesClass = {
   container:
@@ -35,6 +36,7 @@ const handleCopy = (text) => {
 };
 
 const RequestItem = ({
+  id,
   name,
   email,
   phone,
@@ -48,10 +50,16 @@ const RequestItem = ({
   const copyText = `${name}\n${email}\n${phone}\n${service}\n${date}\n${country}`;
 
   const toggleFavorite = async () => {
+    const token = localStorage.getItem("token");
+    console.log(id);
+    
     try {
-      await fetch("/api/favorite", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response=await fetch(`${backendDomainName}/api/contact/${id}/star`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify({ name, email, favorite: !favorite }),
       });
       setFavorite(!favorite);

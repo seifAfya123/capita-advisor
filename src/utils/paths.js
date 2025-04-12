@@ -141,41 +141,7 @@ export const servicesList = [
     title: "title here",
     key: "1",
   },
-  {
-    image: "service2.png",
-    isAdmin: false,
-    text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
-    title: "title here",
-    key: "2",
-  },
-  {
-    image: "service3.png",
-    isAdmin: false,
-    text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
-    title: "title here",
-    key: "3",
-  },
-  {
-    image: "service1.png",
-    isAdmin: false,
-    text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
-    title: "title here",
-    key: "4",
-  },
-  {
-    image: "service2.png",
-    isAdmin: false,
-    text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
-    title: "title here",
-    key: "5",
-  },
-  {
-    image: "service3.png",
-    isAdmin: false,
-    text: "lorem lorem lorem lorem lorem loerm lokre dksja d ai jhgdl aas;d ns;dj k;d asad",
-    title: "title here",
-    key: "6",
-  },
+
 ];
 
 export const htmlText = `

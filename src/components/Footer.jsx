@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MainLogo from "./MainLogo";
-import { links } from "../utils/paths";
+import { backendDomainName, links } from "../utils/paths";
 import { Link } from "react-router-dom";
 import ContactUsForm from "./inputs/ContactUsForm";
+import { FaFacebook } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
+import { RiTwitterXFill } from "react-icons/ri";
+import { FaTiktok } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const classStyles = {
   footerContainer:
@@ -16,22 +21,39 @@ const classStyles = {
   textStyle: "text-xs text-gray-500",
 };
 
-const mediaLinks = [
-  {
-    type: "fb",
-    link: "",
-  },
-  {
-    type: "ig",
-    link: "",
-  },
-  {
-    type: "x",
-    link: "",
-  },
-];
-
 const Footer = ({ child }) => {
+  const [socialLinks, setSocialLinks] = useState({
+    facebook: "",
+    instagram: "",
+    tiktok: "",
+    twitter: "",
+    linkedin: "",
+  });
+
+  useEffect(() => {
+    // Fetch the metadata from the API
+    fetch(`${backendDomainName}/api/metadata/`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Assuming only one metadata record is returned
+        // console.log(data);
+        const metadata = data[0];
+        // console.log(metadata);
+        
+        setSocialLinks({
+          facebook: data.facebook,
+          instagram: data.instagram,
+          tiktok: data.tiktok,
+          twitter: data.twitter,
+          linkedin: data.linkedin,
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching metadata:", error);
+      });
+    // console.log(socialLinks);
+  }, []);
+
   return (
     <div className="bg-white flex flex-col items-center mt-6">
       {child}
@@ -40,7 +62,52 @@ const Footer = ({ child }) => {
         <div className={classStyles.leftSide}>
           <MainLogo width="w-[10rem]" />
           <div className={classStyles.iconsContainer}>
-            {/* Social Icons Here */}
+            {/* Render Social Media Icons Conditionally */}
+            {socialLinks.facebook && (
+              <a
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook />
+              </a>
+            )}
+            {socialLinks.instagram && (
+              <a
+                href={socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiFillInstagram />
+              </a>
+            )}
+            {socialLinks.tiktok && (
+              <a
+                href={socialLinks.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+               <FaTiktok />
+              </a>
+            )}
+            {socialLinks.twitter && (
+              <a
+                href={socialLinks.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <RiTwitterXFill />
+              </a>
+            )}
+            {socialLinks.linkedin && (
+              <a
+                href={socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
+            )}
           </div>
           <p className={classStyles.textStyle}>
             Copyright © 2025. All Rights Reserved

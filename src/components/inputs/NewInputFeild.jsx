@@ -11,9 +11,13 @@ const NewInputFeild = ({
   placeHolderText,
   inputType,
   hasError = false,
-  theKey
+  theKey,
+  value="",
+  name=""
 }) => {
   // const fun = (e) => onChangeFunction(e);
+
+  
   return (
     <div key={theKey}>
       
@@ -29,6 +33,8 @@ const NewInputFeild = ({
           placeholder={placeHolderText}
           onChange={(e) => onChangeFunction(e)}
           className={classStyles.input}
+          value={value}
+          name={name}
         />
       </div>
       {hasError && <p className={classStyles.error}>Error message goes here</p>}

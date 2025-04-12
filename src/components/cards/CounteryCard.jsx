@@ -1,3 +1,5 @@
+import { backendDomainName } from "../../utils/paths";
+import ToggleButton from "../admin/ToggleButton";
 import MainButton from "../buttons/MainButton";
 
 const classStyles = {
@@ -18,17 +20,14 @@ const CounteryCard = ({
   image,
   isActive = false,
   counteryName,
+  id,
 }) => {
   return (
     <div className={classStyles.cardStyle}>
       {isAdmin && (
         <div className={classStyles.headline}>
           <span>{counteryName}</span>
-          <div
-            className={isActive ? classStyles.toggleOn : classStyles.toggleOff}
-          >
-            {isActive ? "Enabled" : "Disabled"}
-          </div>
+          <ToggleButton url={`${backendDomainName}/api/companies/admin/${id}`}/>
         </div>
       )}
       <img className={classStyles.imageStyle} src={image} alt="Service image" />

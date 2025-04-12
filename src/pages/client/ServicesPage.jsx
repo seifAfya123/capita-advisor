@@ -58,6 +58,7 @@ const ServicesPage = () => {
         <div className={classStyles.listStyle}>
           {servicesList.map((serviceItem) => (
             <ServiceCard
+              id={serviceItem._id}
               key={serviceItem.id}
               image={serviceItem.image}
               isAdmin={false}

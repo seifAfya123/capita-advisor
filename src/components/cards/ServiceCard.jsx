@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { links } from "../../utils/paths";
+import { backendDomainName, links } from "../../utils/paths";
 
 const classStyles = {
   container:
@@ -13,7 +13,7 @@ const classStyles = {
   buttonGreen: "w-full bg-green-500 text-white font-semibold py-2 rounded-lg",
   buttonRed: "w-full bg-red-500 text-white font-semibold py-2 rounded-lg",
   popup:
-    "fixed inset-0 flex items-center justify-center bg-black bg-opacity-40",
+    "fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 absolute",
   popupContent: "bg-white p-6 rounded-lg shadow-lg max-w-sm",
   popupButton: "mt-4 px-4 py-2 rounded-lg font-semibold",
   popupButtonRed: "bg-red-500 text-white",
@@ -21,12 +21,13 @@ const classStyles = {
 };
 
 export default function ServiceCard({
+  id,
   isAdmin,
   title,
   text,
   image,
-  serviceId,
-  topage=links.serviceDetails
+  topage = links.serviceDetails,
+  isblog = false,
 }) {
   const [showPopup, setShowPopup] = useState(false);
 
@@ -35,8 +36,26 @@ export default function ServiceCard({
   };
 
   const handleConfirmRemove = () => {
-    console.log("Service removed", serviceId);
-    setShowPopup(false);
+    const token = localStorage.getItem("token");
+    const url = `${backendDomainName}/api/${
+      isblog ? "blogs" : "services"
+    }/${id}`;
+    console.log(url);
+
+    const ress = fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+
+      .catch((error) => console.error("Error updating contact info:", error));
+    if (ress) {
+      console.log("Service removed", id);
+      setShowPopup(false);
+    }
   };
 
   const handleCancelRemove = () => {
@@ -44,7 +63,7 @@ export default function ServiceCard({
   };
 
   const handleEditClick = () => {
-    console.log("Open details for service ID:", serviceId);
+    console.log("Open details for service ID:", id);
   };
 
   return (

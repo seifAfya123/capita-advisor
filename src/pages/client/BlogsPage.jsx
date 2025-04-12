@@ -49,6 +49,7 @@ const BlogsPage = () => {
         ) : (
           blogs.map((blog) => (
             <ServiceCard
+            id={blog._id}
               image={blog.image} // Assuming your blog object contains an image property
               isAdmin={false} // Set this based on your requirement
               text={blog.description[language]} // Assuming `title` property in your blog object

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { backendDomainName, links } from "../../utils/paths";
 import SideMenu from "../../components/admin/SideMenu";
 import ContactINfoSectionDB from "../../components/admin/ContactINfoSectionDB";
-
 const stylesClass = {
-  pageStyle: "flex flex-row",
+  pageStyle: " flex flex-row w-full",
 };
+
 
 const DashbordInfo = () => {
   const [contactInfo, setContactInfo] = useState(null);

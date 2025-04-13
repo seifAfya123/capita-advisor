@@ -4,7 +4,7 @@ import SideMenu from "../../components/admin/SideMenu";
 import CompanyRegSectionDB from '../../components/admin/CompanyRegSectionDB';
 
 const stylesClass = {
-    pageStyle: " flex flex-row ",
+    pageStyle: " flex flex-row w-full",
   };
   
 const DashbordCompanyReg = () => {

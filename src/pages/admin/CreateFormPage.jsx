@@ -10,9 +10,7 @@ const CreateFormPage = () => {
   return (
     <div className={stylesClass.pageStyle}>
       <SideMenu currentPage={links.dashboard_companyRegiseration} />
-      <div>
         <FormsSectionDB />
-      </div>
     </div>
   )
 }

@@ -2,10 +2,10 @@ import React from "react";
 import ContactRequests from "../../components/admin/ContactRequests";
 import { conatctRequestsData, links } from "../../utils/paths";
 import SideMenu from "../../components/admin/SideMenu";
-
 const stylesClass = {
-  pageStyle: " flex flex-row ",
+  pageStyle: " flex flex-row w-full",
 };
+
 
 const DashbordContactReqs = () => {
   return (

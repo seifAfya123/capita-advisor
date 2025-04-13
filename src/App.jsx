@@ -18,6 +18,7 @@ import DashbordCompanyReg from "./pages/admin/DashbordCompanyReg";
 import CreateOrEditService from "./pages/admin/CreateOrEditService";
 import CreateFormPage from "./pages/admin/CreateFormPage";
 import FormRequests from "./pages/admin/FormRequests";
+import DashboardCreateEditBlog from "./pages/admin/DashboardCreateEditBlog";
 
 export default function App() {
   return (
@@ -56,6 +57,10 @@ export default function App() {
           <Route
             path={`${links.dashboard_serivce_details}/:id`}
             element={<CreateOrEditService />}
+          />
+          <Route
+            path={`${links.dashboard_blog_details}/:id`}
+            element={<DashboardCreateEditBlog />}
           />
 
           {/* Our counteries and its requests and its form */}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { backendDomainName, links } from "../../utils/paths";
+import { useNavigate } from "react-router-dom";
 
 const classStyles = {
   container:
@@ -36,6 +37,8 @@ export default function ServiceCard({
   };
 
   const handleConfirmRemove = () => {
+    const { id } = useParams(); // get ID from URL
+
     const token = localStorage.getItem("token");
     const url = `${backendDomainName}/api/${
       isblog ? "blogs" : "services"
@@ -65,6 +68,7 @@ export default function ServiceCard({
   const handleEditClick = () => {
     console.log("Open details for service ID:", id);
   };
+  const navigate = useNavigate();
 
   return (
     <div className={classStyles.container}>
@@ -76,15 +80,23 @@ export default function ServiceCard({
           <div className="mt-4 space-y-2">
             <button
               className={classStyles.buttonGreen}
-              onClick={handleEditClick}
+              onClick={() => {
+                // Navigate to edit screen and pass the ID
+
+                navigate(
+                  isblog
+                    ? `${links.dashboard_blog_details}/${id}`
+                    : `${links.dashboard_serivce_details}/${id}`
+                );
+              }}
             >
-              Edit Service
+              Edit {isblog ? "Blog" : "Service"}
             </button>
             <button
               className={classStyles.buttonRed}
               onClick={handleRemoveClick}
             >
-              Remove Service
+              Remove {isblog ? "Blog" : "Service"}
             </button>
           </div>
         ) : (

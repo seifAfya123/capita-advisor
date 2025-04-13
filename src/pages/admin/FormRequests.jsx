@@ -9,9 +9,7 @@ const FormRequests = () => {
   return (
     <div className={stylesClass.pageStyle}>
       <SideMenu currentPage={links.dashboard_companyRegiseration} />
-      <div>
         <FormsRequestsDB />
-      </div>
     </div>
   );
 };

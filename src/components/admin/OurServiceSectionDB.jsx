@@ -14,12 +14,18 @@ const OurServiceSectionDB = () => {
   // Function to fetch services from the API
   const fetchServices = async () => {
     setLoading(true);
+    const token = localStorage.getItem("token");
+
     setError(""); // Reset error state before fetching
-    const url = `${backendDomainName}/api/services/client/?${
+    const url = `${backendDomainName}/api/services/?${
       search ? `search=${search}` : ""
     }`;
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log(url);
 
       if (!response.ok) {
@@ -57,7 +63,8 @@ const OurServiceSectionDB = () => {
               bgcolor="green"
               text="Add Service"
               onclickfunction={() => {
-           
+                const id="create"
+                navigate(links.dashboard_serivce_details + "/"+ id);
               }}
             />
           </div>

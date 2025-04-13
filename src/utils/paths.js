@@ -10,11 +10,18 @@ export const links = {
   // ____________________________
   dashboardLogin: "/db/login",
   dashboard_ourServices: "/db/our-services",
-  dashboard_ourServices_details: "/db/our-services/details",
+  dashboard_serivce_details: "/db/serivce-details",
+  // 
   dashboard_ourContactRequests: "/db/our-contact",
+  // 
   dashboard_companyRegiseration: "/db/company-reg",
-  dashboard_ourBlogs: "/db/our-blogs",
+  dashboard_copmany_requests: "/db/company-reqs",
+  dashboard_copmany_form: "/db/company-form",
+  // 
   dashboard_info: "/db/our-info",
+  // 
+  dashboard_ourBlogs: "/db/our-blogs",
+  dashboard_blog_details: "/db/blog-details",
 
 };
 

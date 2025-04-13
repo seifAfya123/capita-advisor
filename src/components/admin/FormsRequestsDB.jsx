@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
-
-import RequestItem from "./RequestItem";
+import React, { useEffect, useState } from "react";
 import NewInputFeild from "../inputs/NewInputFeild";
 import NewDropDown from "../inputs/NewDropDown";
-import {
-  backendDomainName,
-  corporateFriendlyCountries,
-  homeService,
-} from "../../utils/paths";
 import MainButton from "../buttons/MainButton";
+import RequestItem from "./RequestItem";
+import { backendDomainName, corporateFriendlyCountries, homeService } from "../../utils/paths";
 
 const styles = {
   container: "flex flex-col w-full h-screen mx-4 mt-4",
@@ -22,7 +17,7 @@ const styles = {
   resultsContainer: "flex-1 overflow-y-auto mt-2",
 };
 
-const ContactRequests = () => {
+const FormsRequestsDB = () => {
   const [itemsList, setItemsList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [selectedService, setSelectedService] = useState("");
@@ -151,7 +146,7 @@ const ContactRequests = () => {
                 country={item.country}
                 isFavorite={item.stared}
                 date={new Date(item.date).toLocaleDateString()}
-                isform={false}
+                isform={true}
               />
             ))}
         </div>
@@ -162,4 +157,4 @@ const ContactRequests = () => {
   );
 };
 
-export default ContactRequests;
+export default FormsRequestsDB;

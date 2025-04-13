@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { backendDomainName } from "../../utils/paths";
 
-const ToggleButton = ({ onToggle, url }) => {
-  const [isToggled, setIsToggled] = useState(false);
+const ToggleButton = ({ onToggle=false, url }) => {
+  const [isToggled, setIsToggled] = useState(onToggle);
 
   // Function to handle the toggle action
   // const handleToggle = () => {

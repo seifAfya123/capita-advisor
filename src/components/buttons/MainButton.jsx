@@ -14,6 +14,7 @@ const MainButton = ({
   onclickfunction,
   bgcolor = "red",
   text = "Button text",
+  
 }) => {
   const clickfunction = () => onclickfunction();
   return (

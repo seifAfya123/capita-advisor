@@ -43,7 +43,7 @@ const RequestItem = ({
   service,
   country,
   date,
-  isService = false,
+  isform = false,
   isFavorite = false,
 }) => {
   const [favorite, setFavorite] = useState(isFavorite);
@@ -52,16 +52,19 @@ const RequestItem = ({
   const toggleFavorite = async () => {
     const token = localStorage.getItem("token");
     console.log(id);
-    
+
     try {
-      const response=await fetch(`${backendDomainName}/api/contact/${id}/star`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ name, email, favorite: !favorite }),
-      });
+      const response = await fetch(
+        `${backendDomainName}/api/contact/${id}/star`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ name, email, favorite: !favorite }),
+        }
+      );
       setFavorite(!favorite);
     } catch (error) {
       console.error("Error updating favorite status:", error);
@@ -101,8 +104,12 @@ const RequestItem = ({
         <ActionsIcons funcClick={() => handleCopy(copyText)}>
           <FaCopy />
         </ActionsIcons>
-        {isService && (
-          <ActionsIcons funcClick={() => {}}>
+        {isform && (
+          <ActionsIcons
+            funcClick={() => {
+              console.log("Downloading .....");
+            }}
+          >
             <RiDownload2Line />
           </ActionsIcons>
         )}

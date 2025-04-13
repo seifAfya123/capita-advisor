@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import MainButton from "../buttons/MainButton";
 import NewInputFeild from "../inputs/NewInputFeild";
 import CounteryCard from "../cards/CounteryCard";
-import { backendDomainName } from "../../utils/paths";
+import { backendDomainName, links } from "../../utils/paths";
+import { Link, Links, useNavigate } from "react-router-dom";
 
 const CompanyRegSectionDB = () => {
   const [companies, setCompanies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [search, setsearch] = useState("");
 
   const getCompanies = async () => {
     const token = localStorage.getItem("token");
     setLoading(true);
     try {
-      const URL = `${backendDomainName}/api/companies/admin`;
+      const URL = `${backendDomainName}/api/companies/admin?search=${search}`;
       const response = await fetch(URL, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -31,16 +33,29 @@ const CompanyRegSectionDB = () => {
 
   useEffect(() => {
     getCompanies();
-  }, []);
-
+  }, [search]);
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col w-full h-screen mx-4 mt-4">
       <div className="rounded-[16px] bg-white flex flex-col p-2">
         <p>Registration Locations</p>
         <div className="flex flex-row items-center justify-between">
-          <NewInputFeild placeHolderText={"Search by Country name "} />
+          <NewInputFeild
+            placeHolderText={"Search by Country name "}
+            value={search}
+            onChangeFunction={(e) => {
+              setsearch(e.target.value);
+            }}
+            name="search"
+          />
           <div className="w-[20%]">
-            <MainButton bgcolor="green" text="Add Country" />
+            <MainButton
+              bgcolor="green"
+              text="Add Country"
+              onclickfunction={() => {
+                //! Open popup here
+              }}
+            />
           </div>
         </div>
       </div>
@@ -56,6 +71,7 @@ const CompanyRegSectionDB = () => {
               image={c.image}
               counteryName={c.name}
               isAdmin={true}
+              isActive={c.isActive}
             />
           ))
         )}

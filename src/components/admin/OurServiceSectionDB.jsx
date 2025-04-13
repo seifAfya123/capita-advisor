@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import NewInputFeild from "../inputs/NewInputFeild";
 import ServiceCard from "../cards/ServiceCard";
 import MainButton from "../buttons/MainButton";
-import { backendDomainName } from "../../utils/paths"; // Assuming you have the domain name in paths.js
+import { backendDomainName, links } from "../../utils/paths"; // Assuming you have the domain name in paths.js
+import { useNavigate } from "react-router-dom";
 
 const OurServiceSectionDB = () => {
   const [services, setServices] = useState([]); // To store services from the API
@@ -38,7 +39,7 @@ const OurServiceSectionDB = () => {
   useEffect(() => {
     fetchServices();
   }, [search]);
-
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col w-full h-screen mx-4 mt-4">
       <div className="rounded-[16px] bg-white flex flex-col p-2">
@@ -52,7 +53,13 @@ const OurServiceSectionDB = () => {
             />
           </div>
           <div className="w-[20%]">
-            <MainButton bgcolor="green" text="Add Service" />
+            <MainButton
+              bgcolor="green"
+              text="Add Service"
+              onclickfunction={() => {
+           
+              }}
+            />
           </div>
         </div>
       </div>

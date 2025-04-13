@@ -11,6 +11,11 @@ const SideMenu = ({ currentPage }) => {
       <div>
         <MainLogo />
         <SideMenuItem
+          link={links.dashboard_companyRegiseration}
+          text={"Company Registeration"}
+          active={currentPage == links.dashboard_companyRegiseration}
+        />
+        <SideMenuItem
           link={links.dashboard_ourContactRequests}
           text={"Contact Requests"}
           active={currentPage == links.dashboard_ourContactRequests}
@@ -29,11 +34,6 @@ const SideMenu = ({ currentPage }) => {
           link={links.dashboard_ourBlogs}
           text={"Our Blogs"}
           active={currentPage == links.dashboard_ourBlogs}
-        />
-        <SideMenuItem
-          link={links.dashboard_companyRegiseration}
-          text={"Company Registeration"}
-          active={currentPage == links.dashboard_companyRegiseration}
         />
       </div>
       <button

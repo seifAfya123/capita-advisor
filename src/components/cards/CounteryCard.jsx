@@ -1,7 +1,7 @@
-import { backendDomainName } from "../../utils/paths";
+import { backendDomainName, links } from "../../utils/paths";
 import ToggleButton from "../admin/ToggleButton";
 import MainButton from "../buttons/MainButton";
-
+import { useNavigate } from "react-router-dom";
 const classStyles = {
   cardStyle:
     "rounded-xl border border-gray-300 w-full sm:w-[90%] lg:w-[23.5%] flex flex-col items-center pb-[1rem] p-4 bg-white",
@@ -13,7 +13,7 @@ const classStyles = {
   buttonContainer: "flex flex-col gap-2 mt-2 w-full items-center",
 };
 
-const handleViewRequest = () => {};
+const handleViewRequest = (id) => {};
 const handleViewForm = () => {};
 const CounteryCard = ({
   isAdmin = false,
@@ -22,12 +22,17 @@ const CounteryCard = ({
   counteryName,
   id,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div className={classStyles.cardStyle}>
       {isAdmin && (
         <div className={classStyles.headline}>
           <span>{counteryName}</span>
-          <ToggleButton url={`${backendDomainName}/api/companies/admin/${id}`}/>
+          <ToggleButton
+            onToggle={isActive}
+            url={`${backendDomainName}/api/companies/admin/${id}`}
+          />
         </div>
       )}
       <img className={classStyles.imageStyle} src={image} alt="Service image" />
@@ -37,12 +42,17 @@ const CounteryCard = ({
       {isAdmin && (
         <div className={classStyles.buttonContainer}>
           <MainButton
-            onclickfunction={handleViewRequest}
+            onclickfunction={() => {
+              console.log(links.CreateOrEditService);
+              navigate(links.dashboard_copmany_requests );
+            }}
             bgcolor="green"
             text="View Requests"
           />
           <MainButton
-            onclickfunction={handleViewForm}
+            onclickfunction={() => {
+              navigate(links.dashboard_copmany_form);
+            }}
             bgcolor="green"
             text="View Form"
           />

@@ -15,6 +15,9 @@ import DashbordOurServices from "./pages/admin/DashbordOurServices";
 import DashbordInfo from "./pages/admin/DashbordInfo";
 import DashbordOurBlogs from "./pages/admin/DashbordOurBlogs";
 import DashbordCompanyReg from "./pages/admin/DashbordCompanyReg";
+import CreateOrEditService from "./pages/admin/CreateOrEditService";
+import CreateFormPage from "./pages/admin/CreateFormPage";
+import FormRequests from "./pages/admin/FormRequests";
 
 export default function App() {
   return (
@@ -24,7 +27,10 @@ export default function App() {
           {/* *** Client URLs *** */}
           <Route path="/" element={<Home />} />
           <Route path={links.ourService} element={<ServicesPage />} />
-          <Route path={`${links.serviceDetails}/:id`} element={<ServiceDetails />} />
+          <Route
+            path={`${links.serviceDetails}/:id`}
+            element={<ServiceDetails />}
+          />
           <Route
             path={links.registerCompany}
             element={<RegisterCompanyPage />}
@@ -48,14 +54,22 @@ export default function App() {
             element={<DashbordOurServices />}
           />
           <Route
-            path={`${links.dashboard_ourServices_details}/:id`}
-            element={<DashbordOurServices />}
+            path={`${links.dashboard_serivce_details}/:id`}
+            element={<CreateOrEditService />}
           />
 
           {/* Our counteries and its requests and its form */}
           <Route
             path={links.dashboard_companyRegiseration}
             element={<DashbordCompanyReg />}
+          />
+          <Route
+            path={links.dashboard_copmany_form}
+            element={<CreateFormPage />}
+          />
+          <Route
+            path={links.dashboard_copmany_requests}
+            element={<FormRequests />}
           />
           {/* Our counteries and its requests and its form */}
           <Route path={links.dashboard_info} element={<DashbordInfo />} />

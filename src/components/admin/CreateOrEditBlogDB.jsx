@@ -1,13 +1,13 @@
-
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import NewInputFeild from "../inputs/NewInputFeild";
 import MainButton from "../buttons/MainButton";
 import { backendDomainName } from "../../utils/paths";
+import ImageUploader from "../ImageUploader";
 
 const styles = {
-  container: "flex flex-col w-full h-screen mx-4 mt-4 bg-white",
+  container: "flex flex-col w-full mx-4 mt-4 bg-white pb-3",
   inputsRow: "w-full px-[16px] flex flex-row gap-3 my-[16px]",
   textareaInput: "h-[120px]",
   inputStyle: "w-full overflow-hidden px-2 py-3 rounded-lg bg-[#F2F5FF] ",
@@ -23,6 +23,7 @@ const CreateOrEditBlogDB = () => {
   const [briefen, setbriefen] = useState("");
   const [descriptionar, setdescriptionar] = useState("");
   const [descriptionen, setdescriptionen] = useState("");
+  const [imagelink, setimagelink] = useState("");
   useEffect(() => {
     if (isUpdate) {
       const fetchBlog = async () => {
@@ -34,63 +35,63 @@ const CreateOrEditBlogDB = () => {
               "Content-Type": "application/json",
             },
           });
-  
+
           const data = await response.json();
-  
+
           settitleen(data.title?.en || "");
           settitlear(data.title?.ar || "");
           setbriefen(data.brief?.en || "");
           setbriefar(data.brief?.ar || "");
           setdescriptionen(data.description?.en || "");
           setdescriptionar(data.description?.ar || "");
-  
+
           // Optional: handle image if needed
           // setImageUrl(data.image || "");
         } catch (error) {
           console.error("Error fetching blog:", error);
         }
       };
-  
+
       fetchBlog();
     }
   }, [id, isUpdate]);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-  
-    const payload = {
-      title: {
-        en: titleen,
-        ar: titlear,
-      },
-      brief: {
-        en: briefen,
-        ar: briefar,
-      },
-      description: {
-        en: descriptionen,
-        ar: descriptionar,
-      },
-      image: "https://example.com/image.jpg", // Optional - replace if dynamic
-    };
-  
+
+   
+
     const url = isUpdate
       ? `${backendDomainName}/api/blogs/${id}`
       : `${backendDomainName}/api/blogs`;
-  
+
     const method = isUpdate ? "PUT" : "POST";
-  
+    const formdata = new FormData();
+    // formdata.append("title.en", titlear);
+    // formdata.append("title.ar", titleen);
+    // formdata.append("brief.en", briefen);
+    // formdata.append("brief.ar", briefar);
+    // formdata.append("description.en", descriptionar);
+    // formdata.append("description.ar", descriptionen);
+    // formdata.append("image", imagelink);
+    formdata.append("title[en]", titlear);
+    formdata.append("title[ar]", titleen);
+    formdata.append("brief[en]", briefen);
+    formdata.append("brief[ar]", briefar);
+    formdata.append("description[en]", descriptionar);
+    formdata.append("description[ar]", descriptionen);
+    formdata.append("image", imagelink);
     try {
       const response = await fetch(url, {
         method,
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload),
+        body: formdata,
       });
-  
+
       const result = await response.json();
       if (!response.ok) {
         throw new Error(result.message || "Something went wrong");
@@ -101,13 +102,14 @@ const CreateOrEditBlogDB = () => {
       alert("An error occurred. Please check the console.");
     }
   };
-  
+
   return (
     <div className={styles.container}>
       <p className="p-[16px] text-lg font-semibold">
         {isUpdate ? "Update blog" : "Create blog"}
       </p>
       <form onSubmit={handleSubmit}>
+        <ImageUploader functionHere={setimagelink} />
         <div className={styles.inputsRow}>
           <input
             className={styles.inputStyle}

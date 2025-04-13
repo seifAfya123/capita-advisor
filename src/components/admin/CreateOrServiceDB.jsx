@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import NewInputFeild from "../inputs/NewInputFeild";
 import MainButton from "../buttons/MainButton";
 import { backendDomainName } from "../../utils/paths";
+import ImageUploader from "../ImageUploader";
 
 const styles = {
-  container: "flex flex-col w-full h-screen mx-4 mt-4 bg-white",
+  container: "flex flex-col w-full mx-4 mt-4 bg-white pb-3",
   inputsRow: "w-full px-[16px] flex flex-row gap-3 my-[16px]",
   textareaInput: "h-[120px]",
   inputStyle: "w-full overflow-hidden px-2 py-3 rounded-lg bg-[#F2F5FF] ",
@@ -22,6 +23,7 @@ const CreateOrServiceDB = () => {
   const [breifen, setbreifen] = useState("");
   const [descriptionar, setdescriptionar] = useState("");
   const [descriptionen, setdescriptionen] = useState("");
+  const [imagelink, setimagelink] = useState(null);
 
   useEffect(() => {
     if (isUpdate) {
@@ -53,18 +55,27 @@ const CreateOrServiceDB = () => {
   }, [id, isUpdate]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    console.log(e);
+
+    // e.preventDefault();
     const token = localStorage.getItem("token");
-    const payload = {
-      name_ar: titlear,
-      name_en: titleen,
-      brief_ar: breifar,
-      brief_en: breifen,
-      desc_ar: descriptionar,
-      desc_en: descriptionen,
-      image:"https://example.com/image.jpg",
-      
-    };
+    const formdata = new FormData();
+    formdata.append("name_ar", titlear);
+    formdata.append("name_en", titleen);
+    formdata.append("brief_ar", breifar);
+    formdata.append("brief_en", breifen);
+    formdata.append("desc_ar", descriptionar);
+    formdata.append("desc_en", descriptionen);
+    formdata.append("image", imagelink);
+    // const payload = {
+    //   name_ar: titlear,
+    //   name_en: titleen,
+    //   brief_ar: breifar,
+    //   brief_en: breifen,
+    //   desc_ar: descriptionar,
+    //   desc_en: descriptionen,
+    //   image: "https://example.com/image.jpg",
+    // };
 
     const url = isUpdate
       ? `${backendDomainName}/api/services/${id}`
@@ -77,9 +88,8 @@ const CreateOrServiceDB = () => {
         method,
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload),
+        body: formdata,
       });
 
       const result = await response.json();
@@ -91,13 +101,16 @@ const CreateOrServiceDB = () => {
       alert("An error occurred. Please check the console.");
     }
   };
-
+  const setFileUpload = (thefile) => {
+    setimagelink(thefile);
+  };
   return (
     <div className={styles.container}>
       <p className="p-[16px] text-lg font-semibold">
         {isUpdate ? "Update Service" : "Create Service"}
       </p>
       <form onSubmit={handleSubmit}>
+      <ImageUploader functionHere={setimagelink}/>
         <div className={styles.inputsRow}>
           <input
             className={styles.inputStyle}

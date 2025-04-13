@@ -62,6 +62,8 @@ const CreateOrServiceDB = () => {
       brief_en: breifen,
       desc_ar: descriptionar,
       desc_en: descriptionen,
+      image:"https://example.com/image.jpg",
+      
     };
 
     const url = isUpdate

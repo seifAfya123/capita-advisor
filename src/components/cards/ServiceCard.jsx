@@ -37,7 +37,7 @@ export default function ServiceCard({
   };
 
   const handleConfirmRemove = () => {
-    const { id } = useParams(); // get ID from URL
+    // const { id } = useParams(); // get ID from URL
 
     const token = localStorage.getItem("token");
     const url = `${backendDomainName}/api/${
@@ -82,6 +82,7 @@ export default function ServiceCard({
               className={classStyles.buttonGreen}
               onClick={() => {
                 // Navigate to edit screen and pass the ID
+                console.log(`is blog ${isblog} `);
 
                 navigate(
                   isblog
